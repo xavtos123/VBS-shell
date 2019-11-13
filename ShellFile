@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <appSettings>
+    <!--Restart the PC when EWF ram usage exceeds this value in megabytes-->
+    <add key="RestartPCWhenRamUsageExceeds" value="800"/>
+    <!--Warn when EWF ram usage exceeds this value in megabytes-->
+    <add key="WarnWhenRamUsageExceeds" value="700"/>
+ 
+   <!--AppShell defines the applications that are started after a system starts-->
+    <add key="AppShellPath1" value="C:\Program Files\VBS\TrolleyVision.NET\TV.NET.lnk"/>
+    <add key="AppShellArguments1" value=""/>
+    <add key="AppShellWait1" value="1"/>
+
+
+    <!--Shell defines the applciations that display in the buttons on the Shell Application Tab (Upto 8 items)-->
+    <add key="ShellName1" value="Trolley Vision"/>
+    <add key="ShellPath1" value="C:\Program Files\VBS\TrolleyVision.NET\TV.NET.lnk"/>
+    <add key="ShellArguments1" value=""/>
+    <add key="ShellName2" value="VBS Comm"/>
+    <add key="ShellPath2" value="C:\Program Files\VBSCOMM 2G\VBSCOMM2G.exe"/>
+    <add key="ShellArguments2" value=""/>
+    <add key="ShellName3" value="ASTD Keyboard"/>
+    <add key="ShellPath3" value="C:\Program Files\ASTD\ASTD Keyboard\ASTD_Keyboard.exe"/>
+    <add key="ShellArguments3" value=""/>
+    
+    <add key="RestartDays" value ="0,1,2,3,4,5,6"/> <!--SUN=0,MON=1,TUE=2,WED=3,THU=4,FRI=5,SAT=6,ALL=7-->
+    <add key="RestartTime" value ="03:00"/> <!--24 hour-->
+
+  </appSettings>
+  <system.diagnostics>
+    <sources>
+      <!-- This section defines the logging configuration for My.Application.Log -->
+      <source name="DefaultSource" switchName="DefaultSwitch">
+        <listeners>
+          <add name="FileLog" />
+          <!-- Uncomment the below section to write to the Application Event Log -->
+          <!--<add name="EventLog"/>-->
+        </listeners>
+      </source>
+    </sources>
+    <switches>
+      <add name="DefaultSwitch" value="Information" />
+    </switches>
+    <sharedListeners>
+      <add name="FileLog" type="Microsoft.VisualBasic.Logging.FileLogTraceListener, Microsoft.VisualBasic, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" initializeData="FileLogWriter" />
+      <!-- Uncomment the below section and replace APPLICATION_NAME with the name of your application to write to the Application Event Log -->
+      <!--<add name="EventLog" type="System.Diagnostics.EventLogTraceListener" initializeData="APPLICATION_NAME"/> -->
+    </sharedListeners>
+  </system.diagnostics>
+  <connectionStrings>
+    <add name="DefaultConnection" connectionString="Data Source = |SQL/CE|" />
+  </connectionStrings>
+</configuration>
